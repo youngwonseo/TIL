@@ -3,6 +3,7 @@
 ## 아이템 26. 로 타입은 사용하지 말라
 
 ## 아이템 27. 비검사 경고를 제거하라
+
 * 제내릭 사용시 다양한 종류의 경고를 출력하는데 가능한 경고를 줄일 수 있도록 코드를 작성해야함
 * 모든 경고를 제거하면 타입 안정성이 보장됨, 런타임에 ClassCastException이 발생할 일이 없어짐
 * 경고를 제거할 수는 없지만 타입이 안전하다고 확신할 있으면 @SuppressWarnings("unchecked") 에너테이션을 추가
@@ -22,5 +23,6 @@
 
 ## 아이템 33. 타입 안전 이종 컨테이너를 고려하라
 
-# References
-* [이펙티브 자바 3/e](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966262281&orderClick=LEA&Kc=){: target="_blank"}
+## References
+
+* [이펙티브 자바 3/e](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966262281&orderClick=LEA&Kc=)

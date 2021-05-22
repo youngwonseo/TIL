@@ -163,7 +163,7 @@ public Cheese[] getCheese() {
 * 이러한 상황에서 Java8 이후에는 Optional<T>라는 선택지가 생김
   * Optional<T>는 T타입을 참조하거나, 또는 아무것도 없거나를 처리
 
-##### Optional 생성
+### Optional 생성
 
 * 다음은 컬렉션에서 최대값을 구해 Optional<E>로 반환하는 코드
 * 적절한 정적 펙터리를 사용해 Optional을 반환하면 됨
@@ -182,7 +182,7 @@ public static <E extends Comparable<E>> Optional<E> max(Collection<E> c) {
 }
 ```
 
-##### Optional 소비
+#### Optional 소비
 
 ```java
 // null일 경우 기본값을 지정가능
@@ -200,8 +200,20 @@ Element lastNobleGas = max(Elements.NOBLE_GASES).get();
 
 ## 아이템 56. 공개된 API 요소에는 항상 문서화 주석을 작성하라
 
-* 
+* API는 문서가 필수
+* Javadoc은 소스의 변경에 새로운 문서를 생성해줌
+* API를 올바로 문서화하려면 공개된 모든 클래스, 인터페이스, 메서드, 필드 선언에 문서화 주석을 달아야함
+  * 직렬화에 대해서는 직렬화 형태에 대해 문서화해야함
+  * 기본생성자는 주석을 달 방법이 없으니 공개 클래스는 기본 생성자를 사용해서는 안됨
+* 메서드용 문서화 주석에는 해당 메서드와 클라이언트 사이의 규약을 명료하게 기술해야함
+  * how가 아닌 what을 기술해야함
+* 전제조건과 사후조건뿐만 아니라 부작용도 문서화필요
+  * 시스템 상태에 어떠한 변화를 가져오는것인지를 의미
+* 메서드의 contract를 완벽히 기술하려면 다음의 조건
+  * 모든 매게변수에 @param
+  * 반환 타입이 void가 아니라면 @return
+  * 발생가능한 모든 예외에 대해 @throw
 
-# References
+## References
 
-* [이펙티브 자바 3/e](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966262281&orderClick=LEA&Kc=){: target="_blank"}
+* [이펙티브 자바 3/e](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966262281&orderClick=LEA&Kc=)

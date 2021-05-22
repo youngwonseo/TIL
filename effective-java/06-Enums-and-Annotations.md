@@ -134,5 +134,6 @@ Arrays.stream(garden).collect(groupingBy(p->p.lifeCycle));
     * 적용 대상을 ElementType.TYPE으로 선언한 애너테이션은 모든 타입에 적용가능
     * 즉 부착할 수 잇는 타입을 더 세밀하게 제한하지 못함
 
-# References
-* [이펙티브 자바 3/e](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966262281&orderClick=LEA&Kc=){: target="_blank"}
+## References
+
+* [이펙티브 자바 3/e](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788966262281&orderClick=LEA&Kc=)
