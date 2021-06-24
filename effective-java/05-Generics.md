@@ -164,7 +164,25 @@ public void popAll(Collection<? super E> dst) {
 
 ## 아이템 32. 제네릭과 가변인수를 함께 쓸 때는 신중하라
 
+* 가변인수 메서드(아이템53)와 제네릭은 자바5 때 함께 추가되어 서로 잘 어우러질것같지만 그렇지 않음
+* 가변인수 메서드를 호출하면 가변인수를 위한 배열을 생성함
+* 그런데 내부로 감춰야 했을 이 배열을 클라이언트에 노출하는 문제가 발생
+* 그 결과 가변인수를 위한 매개변수에 제네릭이나 매개변수화 타입이 포함되면 알기 어려운 컴파일 경고가 발생
 * 
+
+
+```java
+static void dangerous(List<String>... stringLists) {
+  List<Integer> intList = List.of(42);
+  Object[] objects = stringLists;
+  objects[0] = intList; // 힙오염
+  String s = stringLists[0].get(0); //ClassCastException을
+}
+```
+
+* 위 메서드는 형변환을 시도하는 곳이 보이지 않는데 ClassCastException을 던짐
+* 마지막 줄에 컴파일러가 생성한 보이지 않는 형변환이 숨겨져 있기 때문
+* 이처럼 제네릭 varargs 배열 매개변수에 값을 저장하는 것은 안전하지 않음
 * 
 
 ## 아이템 33. 타입 안전 이종 컨테이너를 고려하라
