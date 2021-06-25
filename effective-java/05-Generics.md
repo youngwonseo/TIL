@@ -187,8 +187,34 @@ static void dangerous(List<String>... stringLists) {
 
 ## 아이템 33. 타입 안전 이종 컨테이너를 고려하라
 
-* 
-* 
+* 매개변수화 되는 대상은 (원소가 아닌) 컨테이너 자신 
+* 따라서 하나의 컨테이너에서 매개변수화 할 수 있는 타입의 수가 제한됨
+* 보다 유연한, 모든 컨테이너 요소에 대해 타입안전 보장하기 위한 방법으로 컨테이너 대신 키를 매개변수화 하는 방법이 존재
+  * 컨테이너에 값을 넣거나 뺄 때 매개변수화한 키를 함께 제공함으로써 제네릭 타입 시스템이 키와 같음을 보장해줌
+  * 이러한 설계 방식을 타입 안전 이종 컨테이너 패턴(type safe heterogeneous container pattern)이라 함
+
+```java
+public class Favorites {
+  public <T> void putFavorite(Class<T> type, T instance);
+  public <T> T getFavorite(Class<T> type);
+}
+
+
+public static void main(String[] args) {
+  Favorites f = new Favorites();
+
+  f.putFavorite(String.class, "Java");
+  f.putFavorite(Integer.class, 0xcafebabe);
+  f.putFavorite(Class.class, Favorites.class);
+
+  String favoritesString = f.getFavorite(String.class);
+  int favoriteInteger = f.getFavorite(Integer.class);
+  Class<?> favoriteClass = f.getFavorite(Class.class);
+
+  System.out.printf("%s %x %s%n", favoriteString, favoriteInteger, favoriteClass.getName());
+}
+
+```
 
 ## References
 
