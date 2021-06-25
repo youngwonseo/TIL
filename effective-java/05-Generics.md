@@ -197,8 +197,15 @@ static void dangerous(List<String>... stringLists) {
 
 ```java
 public class Favorites {
-  public <T> void putFavorite(Class<T> type, T instance);
-  public <T> T getFavorite(Class<T> type);
+  private Map<Class<T>, Obejct> favorites = new HashMap<>();
+
+  public <T> void putFavorite(Class<T> type, T instance) {
+    favorites.put(Object.requireNonNull(type), instance);
+  }
+
+  public <T> T getFavorite(Class<T> type) {
+    return type.cast(favorites.get(type));
+  }
 }
 
 
@@ -215,6 +222,7 @@ public static void main(String[] args) {
 
   System.out.printf("%s %x %s%n", favoriteString, favoriteInteger, favoriteClass.getName());
 }
+
 ```
 
 ## References

@@ -57,7 +57,7 @@
 
 ```java
 public class InstrumentedHashSet<E> extends HashSet<E> {
-
+  ...
 }
 ```
 * 원소가 몇개 존재하는지 확인하는 getAddCount 메서드가 존재
@@ -76,13 +76,12 @@ public class InstrumentedHashSet<E> extends HashSet<E> {
 
 ```java
 public class InstrumentedSet<E> extends ForwardingSet<E> {
-
+  ...
 }
 
 public class ForwardingSet<E> implements Set<E> {
-
+  ...
 }
-
 ```
 
 
