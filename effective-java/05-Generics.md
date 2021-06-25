@@ -6,10 +6,10 @@
 
 * 클래스와 인터페이스 선언에 **타입 매개변수**가 사용되면, 이를 제네릭 클래스 또는 제네릭 인터페이스라고 함
   * 예로들면 List\<E\>
-* List<String>과 같이 매개변수화 타입을 정의
+* List\<String\>과 같이 매개변수화 타입을 정의
   * 원소 타입이 String인 리스트를 뜻하는 매개변수화 타입
 * 제네릭 타입을 하나 정의하면 그에 딸린 로 타입(raw type)이 정의됨
-  * List<E>의 로 타입은 List
+  * List\<E\>의 로 타입은 List
 * 아래와 같은 코드는 컴파일 타입에 stamps 컬렉션에 Coin이 추가되는것을 탐지할 수 없음
   * 런타임때 ClassCastException을 던짐
 
@@ -33,8 +33,8 @@ private final Collection<Stamp> stamps = ...;
   * 로 타입은 기존 버전에 대한 호환성 때문에 남겨진 것
 * List\<Object\>와 같이 임의 객체를 허용하는 매개변수화 타입은 괜찮음
   * List는 제네릭에서 완전히 발을 뺀것이고 List\<Object\>는 모든 타입을 허용하겠다는 것
-* 매개변수로 List를 받는 메서드에 List<String>은 넘길 수 있음
-  * List<Object>를 받는 메서드에는 List<String>을 넘길 수 없음
+* 매개변수로 List를 받는 메서드에 List\<String\>은 넘길 수 있음
+  * List\<Object\>를 받는 메서드에는 List\<String\>을 넘길 수 없음
   * 이는 제네릭의 하위타입 규칙 때문
 
 ```java
@@ -108,7 +108,7 @@ public static <E> Set<E> union(Set<E> s1, Set<E> s2) {
 ## 아이템 31. 한정적 와일드카드를 사용해 API 유연성을 높이라
 
 * 매개변수화 타입은 불공변
-  * Type1, Type2가 존재할때 List<Type1>, List<Type2>는 상위타입도 하위타입도 아님
+  * Type1, Type2가 존재할때 List\<Type1\>, List\<Type2\>는 상위타입도 하위타입도 아님
 * 아이템29의 스택에 일련의 원소를 입력하는 pushAll를 정의해보자
 
 ```java
@@ -121,7 +121,7 @@ public void pushAll(Iterable<E> src) {
 
 * 이 매서드는 컴파일 되지만 완벽하지는 않음
   * 스택의 원소 타입과 일치하면 잘 동작함
-  * 만약 Stack<Number>로 선언한후 pushAll(intVal)을 호출하면?
+  * 만약 Stack\<Number\>로 선언한후 pushAll(intVal)을 호출하면?
   * intVal은 Integer이므로 Number의 하위 타입으로서 논리적으로 잘 동작할것같음
   * 하지만 매개변수화 타입이 불공변이기 때문에 오류 발생
 * 이런 상황에 대처할 수 있는 한정적 와일드카드 타입이라는 특별한 매개변수화 타입을 지원
@@ -149,7 +149,7 @@ Collection<Object> objects = ...;
 numberStack.popAll(objects);
 ```
 
-* Stack<Number>의 원소를 Object용 컬렉션으로 옮기려고하면 Collection<Number>의 하위타입이 아니라는 오류 발생
+* Stack\<Number\>의 원소를 Object용 컬렉션으로 옮기려고하면 Collection\<Number\>의 하위타입이 아니라는 오류 발생
 * E의 상위 타입 Collection를 명시해야함
 
 ```java
