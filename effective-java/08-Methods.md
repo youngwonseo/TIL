@@ -132,8 +132,6 @@ public void foo(int a1, int a2, int a3) {}
 public void foo(int a1, int a2, int a3, int... rest) {}
 ```
 
-
-
 ## 아이템 54. null이 아닌, 빈 컬렉션이나 배열을 반환하라
 
 * 컬렉션이나 배열같은 컨테이너가 비었을 때 컨테이너 대신 null을 반환하면 클라이언트에서는 null을 처리하는 코드를 추가해야함

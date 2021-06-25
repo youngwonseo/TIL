@@ -15,9 +15,7 @@ public static final int APPLE_GRANNY_SMITH  = 2;
 public enum Apple { FUJI, PIPPIN, GRANNY_SMITH }
 ```
 
-* 
 * 열거타입은 싱글턴의 일반화한 형태라고 볼 수 있음
-
 * 열거타입은 컴파일타임 타입 안정성을 제공
 * 열거타입은 메서드나 필드를 추가할 수 있고 임의의 인터페이스를 구현할 수도 있음
 
@@ -96,7 +94,6 @@ class Plain {
 
 // lifeCycle별 Plant를 구분하는 EnumMap
 Map<Plant.LifeCyle, Set<Plant>> plaintsByLifeCyle = new EnumMap<>(Plant.LifeCycle.class);
- 
 ```
 
 * EnumMap은 내부적으로 배열을 사용하기 때문에 배열을 사용때화 성능이 비견될 수 있음
@@ -105,7 +102,6 @@ Map<Plant.LifeCyle, Set<Plant>> plaintsByLifeCyle = new EnumMap<>(Plant.LifeCycl
 ```java
 Arrays.stream(garden).collect(groupingBy(p->p.lifeCycle));
 ```
-
 
 ## 아이템 38. 확장할 수 있는 열거 타입이 필요하면 인터페이스를 사용하라
 
@@ -119,7 +115,18 @@ Arrays.stream(garden).collect(groupingBy(p->p.lifeCycle));
 
 ## 아이템 39. 명명 패턴보다 애너테이션을 사용하라
 
+* 전통적으로 도구나 프레임워크가 특별히 다뤄야 할 프로그램 요소는 구분되는 명명 패턴이 적용되어왔음
+  * 예로 들면 JUnit3까지 테스트 메서드 이름이 test로 시작되어야 했음
+* 명명패턴은 여러가지 단점을 가짐
+  * 오타가 나면안됨
+  * 올바른 프로그램 요소에서만 사용된다고 보증할 수 없음
+  * 프로그램 요소를 매개변수로 전달할 마땅한 방법이 없음
+* 애너테이션은 이 모든 단점을 해결해줌
+
 ## 아이템 40. @Override 애너테이션을 일관되게 사용하라
+
+* 상위클래스의 메서드를 재정의할때는 항상 @Override애너테이션을 사용해야함
+  * 재정의 실수를 컴파일러가 알려줌
 
 ## 아이템 41. 정의하려는 것이 타입이라면 마커 인터페이스를 사용하라
 
