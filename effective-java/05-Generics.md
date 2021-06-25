@@ -1,5 +1,7 @@
 # 제네릭
 
+제네릭의 이점을 최대한 살리고 단점을 최소화하는 방법을 이야기함
+
 ## 아이템 26. 로 타입은 사용하지 말라
 
 * 클래스와 인터페이스 선언에 **타입 매개변수**가 사용되면, 이를 제네릭 클래스 또는 제네릭 인터페이스라고 함
@@ -213,7 +215,6 @@ public static void main(String[] args) {
 
   System.out.printf("%s %x %s%n", favoriteString, favoriteInteger, favoriteClass.getName());
 }
-
 ```
 
 ## References
