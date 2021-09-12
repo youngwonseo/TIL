@@ -1,7 +1,7 @@
 # 스프링캠프 2019 [Track 2 Session 3] : 무엇을 테스트할 것인가? 어떻게 테스트할 것인가? (권용근)
 
-[![]()](https://youtu.be/YdtknE_yPk4)
-
+[![](https://img.youtube.com/vi/YdtknE_yPk4/0.jpg)](https://youtu.be/YdtknE_yPk4)
+http://img.youtube.com/vi/RlQEoJaLQRA/0.jpg
 * 테스트로부터 얻을 수 있는 것
   * 안정감과 자신감
 * 대상은?
